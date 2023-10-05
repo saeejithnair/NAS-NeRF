@@ -70,7 +70,35 @@
       width: 150px;
       height: 150px;
     }
-    
+
+    .text {
+        text-align: center;
+        width: 80%;
+        margin: auto;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+
+    .caption-container {
+        font-size: 2vw;
+        text-align: center;
+    }
+
+    img {
+        max-width: 80%;
+        height: auto;
+    }
+
+    .figure-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .ground-truth-color {
         color: black;
     }
@@ -89,7 +117,6 @@
     .nas-nerf-xxs-color {
         color: red;
     }
-
   </style>
 
   <script>
@@ -211,7 +238,7 @@
                 <a href="https://vip.uwaterloo.ca/">Mohammad Javad Shafiee</a><sup>1,2,3</sup>,
               </span>
               <span class="author-block">
-                <a href="https://vip.uwaterloo.ca/">Alexander Wong</a><sup>1,2,3</sup>,
+                <a href="https://vip.uwaterloo.ca/">Alexander Wong</a><sup>1,2,3</sup>
               </span>
             </div>
 
@@ -277,62 +304,127 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Neural radiance fields (NeRFs) enable high-quality novel view synthesis, but their prohibitively 
-              high computational complexity limits deployability, especially on resource-constrained platforms.
-              To enable practical usage of NeRFs, quality tuning is essential to reduce computational 
-              complexity, akin to adjustable graphics settings in video games. However while existing 
-              solutions strive for efficiency, they use one-size-fits-all architectures regardless of scene 
-              complexity, although the same architecture may be unnecessarily large for simple scenes but 
-              insufficient for complex ones. Thus as NeRFs become more widely used for 3D visualization, there 
-              is a need to dynamically optimize the neural network component of NeRFs to achieve a balance 
-              between computational complexity and specific targets for synthesis quality. Addressing this 
-              gap, we introduce NAS-NeRF: a generative neural architecture search strategy uniquely tailored 
-              to generate NeRF architectures on a per-scene basis by optimizing the trade-off between 
-              complexity and performance, while adhering to constraints on computational budget and minimum 
-              synthesis quality. Our experiments on the Blender synthetic dataset show the proposed NAS-NeRF 
-              can generate architectures up to 5.74× smaller, with 4.19× fewer FLOPs, and 1.93× faster on a 
-              GPU than baseline NeRFs, without suffering a drop in SSIM. Furthermore, we illustrate that 
-              NAS-NeRF can also achieve architectures up to 23× smaller, 22× fewer FLOPs, and 4.7× faster than 
-              baseline NeRFs with only a 5.3% average SSIM drop.
+              Neural radiance fields (NeRFs) enable high-quality novel view synthesis, but
+              their high computational complexity limits deployability. While existing
+              neural-based solutions strive for efficiency, they use one-size-fits-all
+              architectures regardless of scene complexity. The same architecture may be
+              unnecessarily large for simple scenes but insufficient for complex ones. Thus,
+              there is a need to dynamically optimize the neural network component of NeRFs
+              to achieve a balance between computational complexity and specific targets for
+              synthesis quality. We introduce NAS-NeRF, a generative neural architecture
+              search strategy that generates compact, scene-specialized NeRF architectures
+              by balancing architecture complexity and target synthesis quality metrics. Our
+              method incorporates constraints on target metrics and budgets to guide the
+              search towards architectures tailored for each scene. Experiments on the
+              Blender synthetic dataset show the proposed NAS-NeRF can generate
+              architectures up to 5.74× smaller, with 4.19× fewer FLOPs, and 1.93×
+              faster on a GPU than baseline NeRFs, without suffering a drop in
+              SSIM. Furthermore, we illustrate that NAS-NeRF can also achieve architectures
+              up to 23× smaller, with 22× fewer FLOPs, and 4.7× faster
+              than baseline NeRFs with only a 5.3% average SSIM drop.
             </p><br></br>
           </div>
         </div>
       </div>
       <!--/ Abstract. -->
-
     </div>
 
     <!-- Qualitative images -->
-    <div class="venue" align="center"><p> <i><b>Hover over image</b> to move the zoomed in patch; <b>Click on ground-truth image</b> to switch to a different image</i></p></div>
+    <section class="section">
+    <div class="venue" align="center"><p> <i><b>Hover over image</b> to move the zoomed in patch; <b>Click on ground-truth image</b> to switch to a different image (best viewed on desktop).</i></p></div>
     <div class="img-zoom-container" align="center">
-      <figure display="inline-block">
-        <div class="img-zoom-lens"></div><img id="reference_mesh" src="./static/images/Ground-Truth/000.png"
-          data-image="./static/images/Ground-Truth/">
-        <figcaption class="ground-truth-color"><b>Ground Truth</b></figcaption>
-      </figure>
-      <figure display="inline-block">
-        <div id="zoomed-nerf_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-S/"
-          style="background-image: url(./static/images/NAS-NeRF-S/000.png); background-size: 0px 720px;"></div>
-        <figcaption class="nerf-color"><b>NeRF</b></figcaption>
-      </figure>
-      <figure display="inline-block">
-        <div id="zoomed-nas-nerf-s_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-S/"
-          style="background-image: url(./static/images/NAS-NeRF-S/000.png); background-size: 0px 720px;"></div>
-        <figcaption class="nas-nerf-s-color"><b>NAS-NeRF S</b></figcaption>
-      </figure>
-      <figure display="inline-block">
-        <div id="zoomed-nas-nerf-xs_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-XS/"
-          style="background-image: url(./static/images/NAS-NeRF-XS/000.png); background-size: 0px 720px;"></div>
-        <figcaption class="nas-nerf-xs-color"><b>NAS-NeRF XS</b></figcaption>
-      </figure>
-      <figure display="inline-block">
-        <div id="zoomed-nas-nerf-xxs_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-XXS/"
-          style="background-image: url(./static/images/NAS-NeRF-XXS/000.png); background-size: 0px 720px;"></div>
-        <figcaption class="nas-nerf-xxs-color"><b>NAS-NeRF XXS</b></figcaption>
-      </figure>
-    </div>
+        <figure display="inline-block">
+            <figcaption class="ground-truth-color"><b>Ground Truth</b></figcaption>
+            <div class="img-zoom-lens"></div>
+            <img id="reference_mesh" src="./static/images/Ground-Truth/000.png" data-image="./static/images/Ground-Truth/">
+        </figure>
 
-    <br></br>
+        <figure display="inline-block">
+            <figcaption class="nerf-color"><b>NeRF</b></figcaption>
+            <div id="zoomed-nerf_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-S/"
+                style="background-image: url(./static/images/NAS-NeRF-S/000.png); background-size: 0px 720px;"></div>
+            <div class="arch-details nerf-color" data-arch="NeRF"></div>
+        </figure>
+
+        <figure display="inline-block">
+            <figcaption class="nas-nerf-s-color"><b>NAS-NeRF S</b></figcaption>
+            <div id="zoomed-nas-nerf-s_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-S/"
+                style="background-image: url(./static/images/NAS-NeRF-S/000.png); background-size: 0px 720px;"></div>
+            <div class="arch-details nas-nerf-s-color" data-arch="NAS-NeRF-S"></div>
+        </figure>
+
+        <figure display="inline-block">
+            <figcaption class="nas-nerf-xs-color"><b>NAS-NeRF XS</b></figcaption>
+            <div id="zoomed-nas-nerf-xs_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-XS/"
+                style="background-image: url(./static/images/NAS-NeRF-XS/000.png); background-size: 0px 720px;"></div>
+            <div class="arch-details nas-nerf-xs-color" data-arch="NAS-NeRF-XS"></div>
+        </figure>
+
+        <figure display="inline-block">
+            <figcaption class="nas-nerf-xxs-color"><b>NAS-NeRF XXS</b></figcaption>
+            <div id="zoomed-nas-nerf-xxs_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-XXS/"
+                style="background-image: url(./static/images/NAS-NeRF-XXS/000.png); background-size: 0px 720px;"></div>
+            <div class="arch-details nas-nerf-xxs-color" data-arch="NAS-NeRF-XXS"></div>
+        </figure>
+    </div>
+      <br></br>
+
+    <div class="text">
+      <div class="grid-container">
+          <div class="caption-container nerf-color"><b>NeRF</b></div>
+          <div class="caption-container nas-nerf-s-color"><b>NAS-NeRF S</b></div>
+          <div class="caption-container nas-nerf-xs-color"><b>NAS-NeRF XS</b></div>
+          <div class="caption-container nas-nerf-xxs-color"><b>NAS-NeRF XXS</b></div>
+
+          <div class="image-container"><img src="static/gifs/chair-NeRF-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/chair-NAS-NeRF-S-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/chair-NAS-NeRF-XS-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/chair-NAS-NeRF-XXS-render-interpolate-rgb_fine.gif"></div>
+
+          <div class="image-container"><img src="static/gifs/drums-NeRF-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/drums-NAS-NeRF-S-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/drums-NAS-NeRF-XS-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/drums-NAS-NeRF-XXS-render-interpolate-rgb_fine.gif"></div>
+
+          <div class="image-container"><img src="static/gifs/ficus-NeRF-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/ficus-NAS-NeRF-S-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/ficus-NAS-NeRF-XS-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/ficus-NAS-NeRF-XXS-render-interpolate-rgb_fine.gif"></div>
+
+          <div class="image-container"><img src="static/gifs/hotdog-NeRF-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/hotdog-NAS-NeRF-S-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/hotdog-NAS-NeRF-XS-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/hotdog-NAS-NeRF-XXS-render-interpolate-rgb_fine.gif"></div>
+
+          <div class="image-container"><img src="static/gifs/lego-NeRF-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/lego-NAS-NeRF-S-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/lego-NAS-NeRF-XS-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/lego-NAS-NeRF-XXS-render-interpolate-rgb_fine.gif"></div>
+
+          <div class="image-container"><img src="static/gifs/materials-NeRF-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/materials-NAS-NeRF-S-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/materials-NAS-NeRF-XS-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/materials-NAS-NeRF-XXS-render-interpolate-rgb_fine.gif"></div>
+
+          <div class="image-container"><img src="static/gifs/mic-NeRF-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/mic-NAS-NeRF-S-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/mic-NAS-NeRF-XS-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/mic-NAS-NeRF-XXS-render-interpolate-rgb_fine.gif"></div>
+
+          <div class="image-container"><img src="static/gifs/ship-NeRF-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/ship-NAS-NeRF-S-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/ship-NAS-NeRF-XS-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/ship-NAS-NeRF-XXS-render-interpolate-rgb_fine.gif"></div>
+
+          <div class="caption-container nerf-color"><b>NeRF</b></div>
+          <div class="caption-container nas-nerf-s-color"><b>NAS-NeRF S</b></div>
+          <div class="caption-container nas-nerf-xs-color"><b>NAS-NeRF XS</b></div>
+          <div class="caption-container nas-nerf-xxs-color"><b>NAS-NeRF XXS</b></div>
+      </div>  
+  </div>
+  
+  <br></br>
+  </section>
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3" align="left">NAS-NeRF Field Cell Architecture</h2>
@@ -349,8 +441,8 @@
         </div>
       </div>
     </div>
-    <div class="columns is-centered">
-      <img src="./static/nas_nerf_cell.jpg" alt="NAS-NeRF Field Cell" style="max-width: 50%;">
+    <div class="figure-container">
+      <img src="./static/nas_nerf_cell.jpg" alt="NAS-NeRF Field Cell">
     </div>
     <br></br>
 
@@ -369,85 +461,11 @@
         </div>
       </div>
     </div>
-    <div class="columns is-centered">
-      <img src="./static/generated_candidates_ssim_fps.jpg" alt="Architecture Efficiency Ratio vs. Synthesis Quality" style="max-width: 50%;">
+    <div class="figure-container">
+      <img src="./static/generated_candidates_ssim_fps.jpg" alt="Architecture Efficiency Ratio vs. Synthesis Quality">
     </div>
     <br></br>
     </section>
-
-    <section class="section">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3" align="left">Qualitative Results</h2>
-          <div class="content has-text-justified">
-          </div>
-        </div>
-      </div>
-  
-    <div class="text" align="center">
-      <table class="caption" style="width: 80%; margin: 0 auto -2pt auto; font-size: 200%;">
-          <tbody><tr>
-            <td style="width: 25%" class="nerf-color" align="center"><b>NeRF</b></td>
-            <td style="width: 25%" class="nas-nerf-s-color" align="center"><b>NAS-NeRF S</b></td>
-            <td style="width: 25%" class="nas-nerf-xs-color" align="center"><b>NAS-NeRF XS</b></td>
-            <td style="width: 25%" class="nas-nerf-xxs-color" align="center"><b>NAS-NeRF XXS</b></td>
-          </tr>
-      </tbody></table>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/chair-NeRF-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/chair-NAS-NeRF-S-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/chair-NAS-NeRF-XS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/chair-NAS-NeRF-XXS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      </br>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/drums-NeRF-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/drums-NAS-NeRF-S-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/drums-NAS-NeRF-XS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/drums-NAS-NeRF-XXS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      </br>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/ficus-NeRF-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/ficus-NAS-NeRF-S-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/ficus-NAS-NeRF-XS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/ficus-NAS-NeRF-XXS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      </br>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/hotdog-NeRF-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/hotdog-NAS-NeRF-S-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/hotdog-NAS-NeRF-XS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/hotdog-NAS-NeRF-XXS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      </br>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/lego-NeRF-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/lego-NAS-NeRF-S-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/lego-NAS-NeRF-XS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/lego-NAS-NeRF-XXS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      </br>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/materials-NeRF-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/materials-NAS-NeRF-S-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/materials-NAS-NeRF-XS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/materials-NAS-NeRF-XXS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      </br>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/mic-NeRF-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/mic-NAS-NeRF-S-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/mic-NAS-NeRF-XS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/mic-NAS-NeRF-XXS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      </br>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/ship-NeRF-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/ship-NAS-NeRF-S-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/ship-NAS-NeRF-XS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      <video width="20%" loop="" muted="" autoplay=""><source src="static/videos/ship-NAS-NeRF-XXS-render-interpolate-rgb_fine.mp4" type="video/mp4">X</video>
-      </br>
-      <table class="caption" style="width: 80%; margin: 0 auto -2pt auto; font-size: 200%;">
-        <tbody><tr>
-          <td style="width: 25%" class="nerf-color" align="center"><b>NeRF</b></td>
-          <td style="width: 25%" class="nas-nerf-s-color" align="center"><b>NAS-NeRF S</b></td>
-          <td style="width: 25%" class="nas-nerf-xs-color" align="center"><b>NAS-NeRF XS</b></td>
-          <td style="width: 25%" class="nas-nerf-xxs-color" align="center"><b>NAS-NeRF XXS</b></td>
-        </tr>
-    </tbody></table>
-  </br>
-    </div>
-
-  </section>
-
-
-
 
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">

@@ -2,6 +2,7 @@
 
 figure {
     display: inline-block;
+    margin: 10px; /* adds a little space between the figures */
 }
 
 figure figcaption {
@@ -12,6 +13,11 @@ figure figcaption {
     position: relative;
     overflow-x: auto;
     white-space: nowrap;
+    display: flex;
+    /* this will make the figures wrap on smaller screens*/
+    flex-wrap: wrap;
+    /* this will center the figures */
+    justify-content: center;
 } 
 
 .img-zoom-container img {
@@ -35,3 +41,18 @@ figure figcaption {
     width: 228px;
     height: 228px;
 }
+
+@media (max-width: 768px) { /* this breakpoint can be adjusted */
+    figure {
+      flex: 1 0 calc(50% - 20px); /* takes 50% of the container width minus the margin */
+    }
+  }
+
+.arch-details {
+    position: relative;
+    background-color: rgba(255,255,255,0.6); /* white with slight transparency */
+    text-align: center;
+    font-size: 0.8em;
+    z-index: 10; /* to ensure it stays on top */
+}
+
