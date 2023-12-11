@@ -72,50 +72,51 @@
     }
 
     .text {
-        text-align: center;
-        width: 80%;
-        margin: auto;
+      text-align: center;
+      width: 80%;
+      margin: auto;
     }
 
     .grid-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
     }
 
     .caption-container {
-        font-size: 2vw;
-        text-align: center;
+      font-size: 2vw;
+      text-align: center;
     }
 
     img {
-        max-width: 80%;
-        height: auto;
+      max-width: 80%;
+      height: auto;
     }
 
     .figure-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .ground-truth-color {
-        color: black;
+      color: black;
     }
+
     .nerf-color {
-        color: gray;
+      color: gray;
     }
 
     .nas-nerf-s-color {
-        color: green;
+      color: green;
     }
 
     .nas-nerf-xs-color {
-        color: blue;
+      color: blue;
     }
 
     .nas-nerf-xxs-color {
-        color: red;
+      color: red;
     }
   </style>
 
@@ -194,7 +195,7 @@
         y = y - window.pageYOffset;
         return { x: x, y: y };
       }
-      
+
     }
   </script>
   <!-- Magnifier -->
@@ -203,22 +204,23 @@
 <body>
 
   <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-          </a>
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <!-- Lab link with logo -->
+        <a class="navbar-item" href="https://vip.uwaterloo.ca/">
+          <img src="./static/viplogo.png" alt="Lab Logo" width="54" height="32" style="margin-right: 0.5em;">
+          <!-- Adjust the size as needed -->
+          Vision and Image Processing Lab
+        </a>
       </div>
-      <div class="navbar-menu">
-          <div class="navbar-end">
-              <!-- Lab link with logo -->
-              <a class="navbar-item" href="https://vip.uwaterloo.ca/">
-                  <img src="./static/viplogo.png" alt="Lab Logo" width="54" height="32" style="margin-right: 0.5em;"> <!-- Adjust the size as needed -->
-                  Vision and Image Processing Lab
-              </a>
-          </div>
-      </div>
+    </div>
   </nav>
 
 
@@ -231,14 +233,14 @@
               Fields</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://vip.uwaterloo.ca/">Saeejith Nair</a><sup>1</sup>,</span>
+                <a href="https://vip.uwaterloo.ca/s-nair/">Saeejith Nair</a><sup>1</sup>,</span>
               <span class="author-block">
-                <a href="https://vip.uwaterloo.ca/">Yuhao Chen</a><sup>1</sup>,</span>
+                <a href="https://vip.uwaterloo.ca/yuhao-chen-2/">Yuhao Chen</a><sup>1</sup>,</span>
               <span class="author-block">
-                <a href="https://vip.uwaterloo.ca/">Mohammad Javad Shafiee</a><sup>1,2,3</sup>,
+                <a href="https://vip.uwaterloo.ca/m-shafiee/">Mohammad Javad Shafiee</a><sup>1,2,3</sup>,
               </span>
               <span class="author-block">
-                <a href="https://vip.uwaterloo.ca/">Alexander Wong</a><sup>1,2,3</sup>
+                <a href="https://vip.uwaterloo.ca/a-wong/">Alexander Wong</a><sup>1,2,3</sup>
               </span>
             </div>
 
@@ -252,7 +254,7 @@
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/pdf/2309.14293.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <a href="./static/nas_nerf.pdf" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
@@ -260,7 +262,8 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2309.14293.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://arxiv.org/abs/2309.14293.pdf"
+                    class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
                     </span>
@@ -278,11 +281,11 @@
                 </span> -->
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href="https://youtu.be/dQw4w9WgXcQ" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://github.com/saeejithnair/NAS-NeRF" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Coming Soon...</span>
+                    <span>Code</span>
                   </a>
                 </span>
               </div>
@@ -331,46 +334,50 @@
 
     <!-- Qualitative images -->
     <section class="section">
-    <div class="venue" align="center"><p> <i><b>Hover over image</b> to move the zoomed in patch; <b>Click on ground-truth image</b> to switch to a different image (best viewed on desktop).</i></p></div>
-    <div class="img-zoom-container" align="center">
+      <div class="venue" align="center">
+        <p> <i><b>Hover over image</b> to move the zoomed in patch; <b>Click on ground-truth image</b> to switch to a
+            different image (best viewed on desktop).</i></p>
+      </div>
+      <div class="img-zoom-container" align="center">
         <figure display="inline-block">
-            <figcaption class="ground-truth-color"><b>Ground Truth</b></figcaption>
-            <div class="img-zoom-lens"></div>
-            <img id="reference_mesh" src="./static/images/Ground-Truth/000.png" data-image="./static/images/Ground-Truth/">
+          <figcaption class="ground-truth-color"><b>Ground Truth</b></figcaption>
+          <div class="img-zoom-lens"></div>
+          <img id="reference_mesh" src="./static/images/Ground-Truth/000.png"
+            data-image="./static/images/Ground-Truth/">
         </figure>
 
         <figure display="inline-block">
-            <figcaption class="nerf-color"><b>NeRF</b></figcaption>
-            <div id="zoomed-nerf_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-S/"
-                style="background-image: url(./static/images/NAS-NeRF-S/000.png); background-size: 0px 720px;"></div>
-            <div class="arch-details nerf-color" data-arch="NeRF"></div>
+          <figcaption class="nerf-color"><b>NeRF</b></figcaption>
+          <div id="zoomed-nerf_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-S/"
+            style="background-image: url(./static/images/NAS-NeRF-S/000.png); background-size: 0px 720px;"></div>
+          <div class="arch-details nerf-color" data-arch="NeRF"></div>
         </figure>
 
         <figure display="inline-block">
-            <figcaption class="nas-nerf-s-color"><b>NAS-NeRF S</b></figcaption>
-            <div id="zoomed-nas-nerf-s_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-S/"
-                style="background-image: url(./static/images/NAS-NeRF-S/000.png); background-size: 0px 720px;"></div>
-            <div class="arch-details nas-nerf-s-color" data-arch="NAS-NeRF-S"></div>
+          <figcaption class="nas-nerf-s-color"><b>NAS-NeRF S</b></figcaption>
+          <div id="zoomed-nas-nerf-s_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-S/"
+            style="background-image: url(./static/images/NAS-NeRF-S/000.png); background-size: 0px 720px;"></div>
+          <div class="arch-details nas-nerf-s-color" data-arch="NAS-NeRF-S"></div>
         </figure>
 
         <figure display="inline-block">
-            <figcaption class="nas-nerf-xs-color"><b>NAS-NeRF XS</b></figcaption>
-            <div id="zoomed-nas-nerf-xs_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-XS/"
-                style="background-image: url(./static/images/NAS-NeRF-XS/000.png); background-size: 0px 720px;"></div>
-            <div class="arch-details nas-nerf-xs-color" data-arch="NAS-NeRF-XS"></div>
+          <figcaption class="nas-nerf-xs-color"><b>NAS-NeRF XS</b></figcaption>
+          <div id="zoomed-nas-nerf-xs_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-XS/"
+            style="background-image: url(./static/images/NAS-NeRF-XS/000.png); background-size: 0px 720px;"></div>
+          <div class="arch-details nas-nerf-xs-color" data-arch="NAS-NeRF-XS"></div>
         </figure>
 
         <figure display="inline-block">
-            <figcaption class="nas-nerf-xxs-color"><b>NAS-NeRF XXS</b></figcaption>
-            <div id="zoomed-nas-nerf-xxs_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-XXS/"
-                style="background-image: url(./static/images/NAS-NeRF-XXS/000.png); background-size: 0px 720px;"></div>
-            <div class="arch-details nas-nerf-xxs-color" data-arch="NAS-NeRF-XXS"></div>
+          <figcaption class="nas-nerf-xxs-color"><b>NAS-NeRF XXS</b></figcaption>
+          <div id="zoomed-nas-nerf-xxs_rgb" class="img-zoom-result" data-image="./static/images/NAS-NeRF-XXS/"
+            style="background-image: url(./static/images/NAS-NeRF-XXS/000.png); background-size: 0px 720px;"></div>
+          <div class="arch-details nas-nerf-xxs-color" data-arch="NAS-NeRF-XXS"></div>
         </figure>
-    </div>
+      </div>
       <br></br>
 
-    <div class="text">
-      <div class="grid-container">
+      <div class="text">
+        <div class="grid-container">
           <div class="caption-container nerf-color"><b>NeRF</b></div>
           <div class="caption-container nas-nerf-s-color"><b>NAS-NeRF S</b></div>
           <div class="caption-container nas-nerf-xs-color"><b>NAS-NeRF XS</b></div>
@@ -402,9 +409,12 @@
           <div class="image-container"><img src="static/gifs/lego-NAS-NeRF-XXS-render-interpolate-rgb_fine.gif"></div>
 
           <div class="image-container"><img src="static/gifs/materials-NeRF-render-interpolate-rgb_fine.gif"></div>
-          <div class="image-container"><img src="static/gifs/materials-NAS-NeRF-S-render-interpolate-rgb_fine.gif"></div>
-          <div class="image-container"><img src="static/gifs/materials-NAS-NeRF-XS-render-interpolate-rgb_fine.gif"></div>
-          <div class="image-container"><img src="static/gifs/materials-NAS-NeRF-XXS-render-interpolate-rgb_fine.gif"></div>
+          <div class="image-container"><img src="static/gifs/materials-NAS-NeRF-S-render-interpolate-rgb_fine.gif">
+          </div>
+          <div class="image-container"><img src="static/gifs/materials-NAS-NeRF-XS-render-interpolate-rgb_fine.gif">
+          </div>
+          <div class="image-container"><img src="static/gifs/materials-NAS-NeRF-XXS-render-interpolate-rgb_fine.gif">
+          </div>
 
           <div class="image-container"><img src="static/gifs/mic-NeRF-render-interpolate-rgb_fine.gif"></div>
           <div class="image-container"><img src="static/gifs/mic-NAS-NeRF-S-render-interpolate-rgb_fine.gif"></div>
@@ -420,22 +430,22 @@
           <div class="caption-container nas-nerf-s-color"><b>NAS-NeRF S</b></div>
           <div class="caption-container nas-nerf-xs-color"><b>NAS-NeRF XS</b></div>
           <div class="caption-container nas-nerf-xxs-color"><b>NAS-NeRF XXS</b></div>
-      </div>  
-  </div>
-  
-  <br></br>
-  </section>
+        </div>
+      </div>
+
+      <br></br>
+    </section>
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3" align="left">NAS-NeRF Field Cell Architecture</h2>
         <div class="content has-text-justified">
           <p>
-            The NAS-NeRF pipeline is composed of all the components of the 
-            classic NeRF pipeline, along with two NAS-NeRF field cells in 
-            series for performing the coarse and fine hierarchical sampling. 
-            The nature of our parameterization ensures that the NAS-NeRF 
-            field cell can be plugged into most other NeRF methods, as our 
-            optimizations revolve entirely around the core network 
+            The NAS-NeRF pipeline is composed of all the components of the
+            classic NeRF pipeline, along with two NAS-NeRF field cells in
+            series for performing the coarse and fine hierarchical sampling.
+            The nature of our parameterization ensures that the NAS-NeRF
+            field cell can be plugged into most other NeRF methods, as our
+            optimizations revolve entirely around the core network
             architectures.
           </p>
         </div>
@@ -452,10 +462,10 @@
         <h2 class="title is-3" align="left">Generated Architectures</h2>
         <div class="content has-text-justified">
           <p>
-            Architecture efficiency ratio vs. synthesis quality (SSIM) (top) 
+            Architecture efficiency ratio vs. synthesis quality (SSIM) (top)
             and inference speed (bottom), marker size ∝ parameter count.
-            Here, architecture efficiency ratio is a measure of the number 
-            of FLOPs required for inference on the baseline NeRF 
+            Here, architecture efficiency ratio is a measure of the number
+            of FLOPs required for inference on the baseline NeRF
             architecture relative to the generated NAS-NeRF architecture.
           </p>
         </div>
@@ -465,7 +475,7 @@
       <img src="./static/generated_candidates_ssim_fps.jpg" alt="Architecture Efficiency Ratio vs. Synthesis Quality">
     </div>
     <br></br>
-    </section>
+  </section>
 
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
@@ -494,7 +504,8 @@
           <div class="content">
             <p>
               This website is built based on <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>,
-              <a href="https://github.com/AIBluefisher/dbarf">DBARF</a>, and uses the magnifier from <a href="https://www.idiap.ch/paper/eslam/">ESLAM</a>.
+              <a href="https://github.com/AIBluefisher/dbarf">DBARF</a>, and uses the magnifier from <a
+                href="https://www.idiap.ch/paper/eslam/">ESLAM</a>.
             </p>
           </div>
         </div>
@@ -502,9 +513,9 @@
     </div>
   </footer>
 
-<script src="./static/js/magnifier.js"></script>
-<!-- <script> imageZoom("reference", ["zoomed-imap", "zoomed-nice", "zoomed-eslam" ], 7); </script> -->
-<script> imageZoom("reference_mesh", ["zoomed-nerf_rgb", "zoomed-nas-nerf-s_rgb", "zoomed-nas-nerf-xs_rgb", "zoomed-nas-nerf-xxs_rgb" ], 8); </script>
+  <script src="./static/js/magnifier.js"></script>
+  <!-- <script> imageZoom("reference", ["zoomed-imap", "zoomed-nice", "zoomed-eslam" ], 7); </script> -->
+  <script> imageZoom("reference_mesh", ["zoomed-nerf_rgb", "zoomed-nas-nerf-s_rgb", "zoomed-nas-nerf-xs_rgb", "zoomed-nas-nerf-xxs_rgb"], 8); </script>
 
 </body>
 
